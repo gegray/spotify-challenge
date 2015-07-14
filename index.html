@@ -26,18 +26,20 @@
         <p class="help-block" ng-show="songForm.search.$error.minlength">Enter 3+ characters</p>
       </div>
       <div class="form-group">
-        <button ng-disabled="songForm.search.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
+        <button ng-disabled="songForm.search.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Search on...</button>
+        <button ng-disabled="songForm.search.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">and on...</button>
+        <button ng-disabled="songForm.search.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">and on...</button>
       </div>
     </form>
     <div>
       <div class="container-fixed">
-        <p ng-show="tracks.length>0" class="help-block">Click to sample</p>
+        <p ng-show="tracks.length>0" ng-bind="reName" class="help-block"></p>
         <div ng-class="track.preview_url == currentSong ? 'playing' : ''"  ng-repeat="track in tracks" class="col-xs-4 img">
           <img ng-click="play(track.preview_url)" title="{{track.name}}" src="{{track.album.images[1].url}}"></img>
         </div>
       </div>
     </div>
   </div>
-  
+
 </body>
 </html>
